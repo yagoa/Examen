@@ -11,7 +11,7 @@ package TDAList;
  */
 public class List <E> implements IList<E>  {
     
-    private INode<E> primero;
+    protected INode<E> primero;
 
     public List() 
     {
@@ -184,11 +184,10 @@ public class List <E> implements IList<E>  {
             IList<E> sortedList = new List<E>();                       
             while(!this.isEmpty())
             {
-                INode minor = this.getFirst(); 
+                INode minor = this.getFirst();       
                 
                 // busca el nodo mas chico de la lista y lo agrega como el primero de la nueva
-                for(INode current = this.getFirst(); current != null; current = current.getNext()){                      
-                    
+                for(INode current = this.getFirst(); current != null; current = current.getNext()){                                     
                     if(minor.getTag().compareTo(current.getTag()) > 1) {
                         minor = current;
                     }
