@@ -37,6 +37,11 @@ public interface INode<E> {
      * @return Siguiente nodo del actual
      */
     public INode<E> getNext();
+    
+    
+    public void setPrev(INode<E> pNode);
+        
+    public INode<E> getPrev();
 
     /**
      * Imprime los datos del nodo
@@ -55,6 +60,8 @@ public interface INode<E> {
      */
     public boolean equals(INode<E> node);
 
+    
+    
     /**
      * Retorna la etiqueta del nodo
      *

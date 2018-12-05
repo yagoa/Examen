@@ -14,6 +14,7 @@ public class Node<T> implements INode<T>
     private final Comparable tag;
     private T data;
     private INode<T> next = null;
+    private INode<T> prev = null;
 
     public Node(T data, Comparable etiqueta) 
     {
@@ -46,6 +47,14 @@ public class Node<T> implements INode<T>
         return this.next;
     }
 
+    public void setPrev(INode<T> pNode) {
+        this.prev = pNode;
+    }
+        
+    public INode<T> getPrev() {
+       return this.prev;
+    }
+    
     public void print() 
     {
         System.out.println(data.toString());

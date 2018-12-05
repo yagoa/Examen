@@ -8,6 +8,7 @@ package examen;
 import TDAList.INode;
 import TDAList.Node;
 import TDAList.SortedList.SortedList;
+import TDAList.Stack.Stack;
 import UAT3.Tarea1.Product;
 import UAT3.Tarea1.Supermarket;
 
@@ -22,7 +23,8 @@ public class Examen {
      */
     public static void main(String[] args) {
 //        Tarea1();
-        TestSortList();
+//        TestSortList();
+        StackTest();
     }
     
     public static void Tarea1(){
@@ -68,4 +70,27 @@ public class Examen {
     }
     
     
+    
+    private static void StackTest(){
+        
+        Stack<Integer> instance = new Stack<Integer>(); 
+        INode n1 = new Node("uno",1);
+        INode n2 = new Node("dos",2);
+        INode n3 = new Node("tres",3);
+        INode n4 = new Node("cuatro",4);
+        INode n5 = new Node("cinco",5);
+        INode n6 = new Node("seis",6);
+        
+        instance.Push(n1);
+        instance.Push(n2);
+        instance.Push(n3);
+        instance.Push(n4);
+        instance.Push(n5);
+        
+        instance.print();
+        
+        instance.Pop();
+        instance.Pop();
+        instance.print();
+    }
 }

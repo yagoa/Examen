@@ -38,6 +38,7 @@ public class List <E> implements IList<E>  {
                 aux = aux.getNext();
             }
             aux.setNext(unNodo);
+            unNodo.setPrev(aux);
         }
     }
 
@@ -65,34 +66,24 @@ public class List <E> implements IList<E>  {
     {
         if (isEmpty())  return false;
         
-        if (primero.getNext() == null) 
-        {
-            if (primero.getTag().equals(key)) 
-            {
-                primero = null;
-                return true;
-            }
-        }
-        INode<E> aux = primero;
-        if (aux.getTag().compareTo(key) == 0) 
-        {
-            //Eliminamos el primer elemento
-            INode<E> temp1 = aux;
-            INode<E> temp = aux.getNext();
-            primero = temp;
-            return true;
-        }
-        while (aux.getNext()!= null) 
-        {
-            if (aux.getNext().getTag().equals(key)) 
-            {
-                INode<E> temp = aux.getNext();
-                aux.setNext(temp.getNext());
-                return true;
-            }
-            aux = aux.getNext();
-        }
-        return false;
+        INode<E> lToRemove = this.search(key);   
+        
+        if(lToRemove == null) {return false;}
+        
+        INode<E> lToRemovePrev = lToRemove.getPrev();
+        INode<E> lToRemoveNext = lToRemove.getNext();
+
+        if(lToRemovePrev != null)
+            lToRemovePrev.setNext(lToRemove.getNext());
+        else
+            this.primero = lToRemoveNext;
+        
+        if(lToRemoveNext != null)
+            lToRemoveNext.setPrev(lToRemove.getPrev());
+
+        lToRemove.setNext(null);
+        lToRemove.setPrev(null);     
+        return true;
     }
 
     @Override
