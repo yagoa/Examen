@@ -67,6 +67,10 @@ public interface IBinaryTree<T> {
     public int size();
     
     public int heigth();
+    
+    public ITreeNode findMin();
+    
+    public ITreeNode findMax();
 	
 }
 

@@ -29,6 +29,37 @@ public class BinaryTreeTest {
         instance = new  BinaryTree<Integer>();
     }
  
+    @Test
+    public void testFindMax() {     
+        instance.add(new TreeNode(21,21));
+        instance.add(new TreeNode(13,13));    
+        instance.add(new TreeNode(33,33));
+        
+        instance.add(new TreeNode(10,10));
+        instance.add(new TreeNode(18,18));
+        instance.add(new TreeNode(25,25));
+        instance.add(new TreeNode(40,40));
+        
+        ITreeNode max = instance.findMax();
+        
+        assertEquals(max.getTag(), 40);
+    }
+    
+    @Test
+    public void testFindMin() {     
+        instance.add(new TreeNode(21,21));
+        instance.add(new TreeNode(13,13));    
+        instance.add(new TreeNode(33,33));
+        
+        instance.add(new TreeNode(10,10));
+        instance.add(new TreeNode(18,18));
+        instance.add(new TreeNode(25,25));
+        instance.add(new TreeNode(40,40));
+        
+        ITreeNode max = instance.findMin();
+        
+        assertEquals(max.getTag(), 10);
+    }
     
     @Test
     public void testHeigth() {

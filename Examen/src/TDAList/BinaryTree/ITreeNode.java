@@ -86,6 +86,10 @@ public interface ITreeNode<T> {
     
     public int size(ITreeNode node);
     
-     public int heigth(ITreeNode node);
+    public int heigth(ITreeNode node);
+    
+    public ITreeNode findMin(ITreeNode node);
+    
+    public ITreeNode findMax(ITreeNode node);
 	
 }

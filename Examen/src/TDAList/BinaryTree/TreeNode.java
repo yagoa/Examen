@@ -97,7 +97,7 @@ public class TreeNode<T> implements ITreeNode  {
            }
            else
            {
-               return this.rigth.add(node);
+               return rigth.add(node);
            }
        }
        else if(node.getTag().compareTo(tag) < 0)
@@ -109,7 +109,7 @@ public class TreeNode<T> implements ITreeNode  {
            }
            else
            {
-               return this.add(node);
+               return left.add(node);
            }
        }
        else
@@ -120,18 +120,18 @@ public class TreeNode<T> implements ITreeNode  {
     public void preOrden(IList unaLista) {
         unaLista.insert(new Node(this.data, this.tag));
         
-        if(this.left != null){
-            this.left.preOrden(unaLista);
+        if(left != null){
+            left.preOrden(unaLista);
         }
-        if(this.rigth != null){
-            this.rigth.preOrden(unaLista);
+        if(rigth != null){
+            rigth.preOrden(unaLista);
         }
     }
 
     @Override
     public void inOrden(IList unaLista) {
-        if(this.left != null){
-            this.left.preOrden(unaLista);
+        if(left != null){
+            left.preOrden(unaLista);
         }  
         unaLista.insert(new Node(this.data, this.tag)); 
         
@@ -193,6 +193,23 @@ public class TreeNode<T> implements ITreeNode  {
         return 1 + Math.max(heigth(node.getLeftSon()), heigth(node.getRigthSon()));
     }
     
+    
+    @Override
+    public ITreeNode findMax(ITreeNode node){    
+        if(rigth == null){
+            return this;
+        }     
+        return rigth.findMax(rigth);
+    }
+    
+    
+    @Override
+    public ITreeNode findMin(ITreeNode node){     
+        if(left == null){
+            return this;
+        }    
+        return left.findMin(left);
+    }
 
     private ITreeNode deleteNode() 
     {

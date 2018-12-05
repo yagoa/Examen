@@ -109,4 +109,24 @@ public class BinaryTree<T> implements IBinaryTree<T> {
         }
         return root.heigth(root);
     }
+    
+    @Override
+    public ITreeNode findMin() throws UnsupportedOperationException
+    {
+        if(this.isEmpty()){
+            throw new UnsupportedOperationException("The tree is empty");
+        }
+        
+        return root.findMin(root);
+    }
+    
+    @Override
+    public ITreeNode findMax() throws UnsupportedOperationException
+    {
+        if(this.isEmpty()){
+            throw new UnsupportedOperationException("The tree is empty");
+        }
+        
+        return root.findMax(root);
+    }
 }
